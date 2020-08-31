@@ -39,7 +39,11 @@ export class CreatingLink {
   stop({ mouseX, mouseY }) {
     const overElement = stateManager.getOverElement(mouseX, mouseY)
 
-    if (overElement && overElement.type === 'connectPoint') {
+    if (
+      overElement &&
+      overElement.type === 'connectPoint' &&
+      overElement.rectangle !== this.rectangleStart
+    ) {
       this.rectangleEnd = overElement.rectangle
       this.circleEnd = new Circle({
         x: overElement.x,

@@ -27,14 +27,12 @@ canvas {
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 400px;
+  width: 500px;
+  height: 50px;
   display: flex;
   justify-content: space-around;
 }
 
-button {
+.rect-input {
   width: 100px;
-  height: 30px;
-  background: none;
-  border: 1px solid goldenrod;
 }

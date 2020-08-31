@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <title>Заметки</title>
   </head>
 
   <body>
     <canvas class="canvas"></canvas>
     <div class="buttons">
-      <button class="add">Add note</button>
-      <button class="save">Save</button>
-      <button class="load">Load</button>
+      <button class="add mdc-button mdc-button--raised">
+        <span class="mdc-button__ripple"></span> Add node
+      </button>
+      <button class="save mdc-button mdc-button--raised">
+        <span class="mdc-button__ripple"></span> Save to LS
+      </button>
+      <button class="load mdc-button mdc-button--raised">
+        <span class="mdc-button__ripple"></span> Load from LS
+      </button>
     </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   </body>
 </html>

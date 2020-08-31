@@ -18,7 +18,7 @@ export class Rect {
       x: props.x,
       y: props.y + props.h + 20,
       w: props.w,
-      h: 20,
+      h: 30,
       content: props.text || '',
     })
     this._id = props._id || shortid.generate()

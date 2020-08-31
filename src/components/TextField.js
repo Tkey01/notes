@@ -5,9 +5,14 @@ export class TextField {
     this.x = props.x
     this.y = props.y
     this.content = props.content || ''
-    this.element = document.createElement('input')
     this.onChange = this.onChange.bind(this)
+    this._id = shortid.generate()
 
+    this.createElement(props)
+  }
+
+  createElement(props) {
+    this.element = document.createElement('label')
     this.element.style.cssText = `
       position: fixed;
       left: ${props.x}px;
@@ -15,14 +20,30 @@ export class TextField {
       width: ${props.w}px;
       height: ${props.h}px;
     `
-    this.element.classList.add('rect-input')
-    this.element.type = 'text'
-    this.element.value = this.content
-    this.element.addEventListener('input', this.onChange)
-
-    this._id = shortid.generate()
+    this.element.insertAdjacentHTML(
+      'beforeend',
+      `
+      <span class="mdc-text-field__ripple"></span>
+      <span class="mdc-floating-label" id="my-label">заметОЧКа</span>
+      <input
+        type="text"
+        class="mdc-text-field__input"
+        aria-labelledby="my-label"
+      />
+      <span class="mdc-line-ripple"></span>
+    `,
+    )
+    this.element.classList.add(
+      'rect-input',
+      'mdc-text-field',
+      'mdc-text-field--outlined',
+    )
+    this.input = this.element.querySelector('input')
+    this.input.value = this.content
+    this.input.addEventListener('input', this.onChange)
 
     document.body.appendChild(this.element)
+    window.mdc.textField.MDCTextField.attachTo(this.element)
   }
 
   move(x, y) {
