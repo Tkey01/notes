@@ -16,7 +16,7 @@ export class Rect {
     this.zIndex = 1
     this.textField = new TextField({
       x: props.x,
-      y: props.y + props.h + 20,
+      y: props.y + props.h + 25,
       w: props.w,
       h: 30,
       content: props.text || '',
