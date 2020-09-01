@@ -30,6 +30,10 @@ export class MovingNode {
         x: this.rectangle.textField.x,
         y: this.rectangle.textField.y,
       },
+      deleteButton: {
+        x: this.rectangle.deleteButton.x,
+        y: this.rectangle.deleteButton.y,
+      },
     }
   }
 
@@ -61,6 +65,11 @@ export class MovingNode {
     this.rectangle.textField.move(
       this.startCoords.textField.x + diff1,
       this.startCoords.textField.y + diff2,
+    )
+
+    this.rectangle.deleteButton.move(
+      this.startCoords.deleteButton.x + diff1,
+      this.startCoords.deleteButton.y + diff2,
     )
 
     this.rectangle.move(

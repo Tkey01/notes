@@ -106,6 +106,7 @@ export class LoadManager {
 
   load() {
     document.querySelectorAll('.rect-input').forEach((item) => item.remove())
+    document.querySelectorAll('.delete-btn').forEach((item) => item.remove())
 
     const savedData = JSON.parse(window.localStorage.getItem('save'))
     const newFigures = savedData.map((figure) => this.loadFigure(figure))

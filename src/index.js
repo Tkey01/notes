@@ -15,13 +15,15 @@ export const globalSizes = {}
 export const rc = new RenderController()
 export const stateManager = new StateManager()
 export const connectPoint = new ConnectPoint()
-const actionManager = new ActionManager()
+export const actionManager = new ActionManager()
 const saveManager = new SaveManager()
 const loadManager = new LoadManager()
 
 canvas.addEventListener('mousedown', (event) => {
   const mouseX = event.pageX
   const mouseY = event.pageY
+
+  console.log(mouseX, mouseY)
 
   const overElement = stateManager.getOverElement(mouseX, mouseY)
 

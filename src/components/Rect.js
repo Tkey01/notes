@@ -2,6 +2,7 @@ import { ctx } from '../'
 import { recognizeSide } from '../utils'
 import { TextField } from './TextField'
 import shortid from 'shortid'
+import { DeleteButton } from './DeleteButton'
 
 export class Rect {
   constructor(props) {
@@ -15,11 +16,15 @@ export class Rect {
     this.points = props.points || []
     this.zIndex = 1
     this.textField = new TextField({
-      x: props.x,
-      y: props.y + props.h + 25,
-      w: props.w,
+      x: props.x - 25,
+      y: props.y + props.h + 10,
+      w: props.w + 50,
       h: 30,
       content: props.text || '',
+    })
+    this.deleteButton = new DeleteButton({
+      x: props.x + props.w - 30,
+      y: props.y + 10,
     })
     this._id = props._id || shortid.generate()
   }

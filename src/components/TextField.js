@@ -1,12 +1,9 @@
-import shortid from 'shortid'
-
 export class TextField {
   constructor(props) {
     this.x = props.x
     this.y = props.y
     this.content = props.content || ''
     this.onChange = this.onChange.bind(this)
-    this._id = shortid.generate()
 
     this.createElement(props)
   }
@@ -24,7 +21,7 @@ export class TextField {
       'beforeend',
       `
       <span class="mdc-text-field__ripple"></span>
-      <span class="mdc-floating-label" id="my-label">заметОЧКа</span>
+      <span class="mdc-floating-label" id="my-label"></span>
       <input
         type="text"
         class="mdc-text-field__input"
