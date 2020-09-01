@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://tkey01.github.io/notes",
   "scripts": {
     "build": "webpack --mode development",
     "start": "webpack-dev-server --mode development",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "author": "",
