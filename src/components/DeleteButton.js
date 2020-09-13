@@ -1,4 +1,4 @@
-import { stateManager, actionManager } from '..'
+import { actionManager } from '..'
 
 export class DeleteButton {
   constructor(props) {
@@ -32,16 +32,12 @@ export class DeleteButton {
   }
 
   onClick(event) {
-    const mouseX = event.pageX
-    const mouseY = event.pageY
-    const overElement = stateManager.getOverElement(mouseX, mouseY)
-    const currentState = stateManager.actionState
-
-    if (overElement.type === 'rectangle' && !currentState) {
-      actionManager.dispatch({
-        name: 'deleteNode',
-        payload: { rectangle: overElement },
-      })
-    }
+    actionManager.dispatch({
+      name: 'deleteNode',
+      payload: {
+        mouseX: event.pageX,
+        mouseY: event.pageY,
+      },
+    })
   }
 }

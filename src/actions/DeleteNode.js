@@ -1,12 +1,19 @@
-import { rc } from '..'
+import { rc, stateManager } from '..'
 
 export class DeleteNode {
   constructor() {
     this.deleteNode = null
   }
 
-  execute({ rectangle }) {
-    this.deleteNode = rectangle
+  execute({ mouseX, mouseY }) {
+    const overElement = stateManager.getOverElement(mouseX, mouseY)
+    const currentState = stateManager.actionState
+
+    if (overElement.type !== 'rectangle' || currentState) {
+      return
+    }
+
+    this.deleteNode = overElement
 
     this.deleteNode.lines.forEach((line) => {
       const isFromStart = line.rectangleStart === this.deleteNode
