@@ -1,3 +1,5 @@
+import MobileDetect from 'mobile-detect'
+
 export const recognizeSide = (square, mouse) => {
   const isLeftSide =
     mouse.x >= square.x - 10 &&
@@ -28,5 +30,45 @@ export const recognizeSide = (square, mouse) => {
     return 'top'
   } else if (isBottomSide) {
     return 'bottom'
+  }
+}
+
+export const isWithinBorders = (rectangle1, rectangle2) => {
+  let count = 0
+
+  if (rectangle1.leftBorder <= rectangle2.rightBorder) {
+    count++
+  }
+  if (rectangle1.rightBorder >= rectangle2.leftBorder) {
+    count++
+  }
+  if (rectangle1.topBorder <= rectangle2.bottomBorder) {
+    count++
+  }
+  if (rectangle1.bottomBorder >= rectangle2.topBorder) {
+    count++
+  }
+
+  if (count === 4) {
+    console.log(rectangle1, rectangle2)
+    return true
+  }
+
+  return false
+}
+
+export const removeNonCanvasElements = () => {
+  document.querySelectorAll('.rect-input').forEach((item) => item.remove())
+  document.querySelectorAll('.delete-btn').forEach((item) => item.remove())
+}
+
+export const displayCaveatsOnMobileDevices = () => {
+  let md = new MobileDetect(window.navigator.userAgent)
+
+  if (md.mobile()) {
+    removeNonCanvasElements()
+
+    document.querySelector('.content').style.display = 'none'
+    document.querySelector('.caveats').style.display = 'flex'
   }
 }

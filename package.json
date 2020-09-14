@@ -23,6 +23,7 @@
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
+    "mobile-detect": "^1.4.4",
     "shortid": "^2.2.15"
   }
 }

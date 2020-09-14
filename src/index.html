@@ -11,18 +11,24 @@
   </head>
 
   <body>
-    <canvas class="canvas"></canvas>
-    <div class="buttons">
-      <button class="add mdc-button mdc-button--raised">
-        <span class="mdc-button__ripple"></span> Add node
-      </button>
-      <button class="save mdc-button mdc-button--raised">
-        <span class="mdc-button__ripple"></span> Save to LS
-      </button>
-      <button class="load mdc-button mdc-button--raised">
-        <span class="mdc-button__ripple"></span> Load from LS
-      </button>
+    <div class="content">
+      <canvas class="canvas"></canvas>
+      <div class="buttons">
+        <button class="add mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span> Добавить заметку
+        </button>
+        <button class="save mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span> Сохранить
+        </button>
+        <button class="load mdc-button mdc-button--raised">
+          <span class="mdc-button__ripple"></span> Загрузить
+        </button>
+      </div>
     </div>
+    <div class="caveats">
+      <h1>Мобильная версия в разработке, пожалуйста зайдите с компьютера</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.4/mobile-detect.min.js"></script>
     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   </body>
 </html>

@@ -2,30 +2,23 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-} /* to remove the top and left whitespace */
+}
 
 html,
 body {
   width: 100%;
   height: 100%;
   background-color: #fcfcfc;
-} /* just to be sure these are full screen*/
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 canvas {
   display: block;
-} /* To remove the scrollbars */
-
-/* .canvas {
-  display: block;
-  width: 100vw;
-  height: 100vw;
-  background: #fff;
-  display: block;
-} */
+}
 
 .buttons {
   position: fixed;
-  top: 50px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 500px;
@@ -39,10 +32,32 @@ canvas {
   width: 20px;
   height: 20px;
   background: none;
-  border-radius: 2px;
-  border: 1px solid #6104e4;
-  color: #8240df;
+  border: none;
+  color: #4869fc;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   line-height: 18px;
+  user-select: none;
+}
+
+.delete-btn:active,
+.delete-btn:focus {
+  border: none;
+  outline: none;
+}
+
+.delete-btn:hover {
+  color: #1281ff;
+}
+
+.content {
+  display: block;
+}
+
+.caveats {
+  display: none;
+  height: 100%;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
 }

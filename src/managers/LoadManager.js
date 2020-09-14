@@ -2,6 +2,7 @@ import { rc, connectPoint } from '..'
 import { Circle } from '../components/Circle'
 import { Rect } from '../components/Rect'
 import { Line } from '../components/Line'
+import { removeNonCanvasElements } from '../utils'
 
 export class LoadManager {
   loadConnectPoint(figure) {
@@ -105,8 +106,7 @@ export class LoadManager {
   }
 
   load() {
-    document.querySelectorAll('.rect-input').forEach((item) => item.remove())
-    document.querySelectorAll('.delete-btn').forEach((item) => item.remove())
+    removeNonCanvasElements()
 
     const savedData = JSON.parse(window.localStorage.getItem('save'))
     const newFigures = savedData.map((figure) => this.loadFigure(figure))

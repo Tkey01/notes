@@ -6,6 +6,9 @@ import { Rect } from './components/Rect'
 import './styles/main.css'
 import { SaveManager } from './managers/SaveManager'
 import { LoadManager } from './managers/LoadManager'
+import { displayCaveatsOnMobileDevices } from './utils'
+
+displayCaveatsOnMobileDevices()
 
 const canvas = document.querySelector('.canvas')
 
@@ -129,8 +132,8 @@ const init = () => {
 window.addEventListener('resize', init, false)
 
 const rect1 = new Rect({
-  x: 50,
-  y: 50,
+  x: 70,
+  y: 70,
   w: 100,
   h: 100,
 })
