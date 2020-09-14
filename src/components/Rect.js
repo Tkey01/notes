@@ -11,6 +11,11 @@ export class Rect {
     this.w = props.w
     this.h = props.h
 
+    this.leftBorder = props.x - 25
+    this.rightBorder = props.x + props.w + 25
+    this.topBorder = props.y - 10
+    this.bottomBorder = props.y + props.h + 40
+
     this.type = 'rectangle'
     this.lines = props.lines || []
     this.points = props.points || []

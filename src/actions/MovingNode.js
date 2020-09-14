@@ -1,4 +1,5 @@
 import { rc } from '..'
+import { isWithinBorders } from '../utils'
 
 export class MovingNode {
   constructor() {
@@ -34,12 +35,36 @@ export class MovingNode {
         x: this.rectangle.deleteButton.x,
         y: this.rectangle.deleteButton.y,
       },
+      leftBorder: this.rectangle.leftBorder,
+      rightBorder: this.rectangle.rightBorder,
+      topBorder: this.rectangle.topBorder,
+      bottomBorder: this.rectangle.bottomBorder,
     }
   }
 
   processing({ mouseX, mouseY }) {
     const diff1 = mouseX - this.startCoords.mouse.x
     const diff2 = mouseY - this.startCoords.mouse.y
+
+    const isWithinOtherBorders = rc.figures
+      .filter(
+        (figure) => figure.type === 'rectangle' && figure !== this.rectangle,
+      )
+      .some((figure) =>
+        isWithinBorders(
+          {
+            leftBorder: this.startCoords.leftBorder + diff1,
+            rightBorder: this.startCoords.rightBorder + diff1,
+            topBorder: this.startCoords.topBorder + diff2,
+            bottomBorder: this.startCoords.bottomBorder + diff2,
+          },
+          figure,
+        ),
+      )
+
+    if (isWithinOtherBorders) {
+      return
+    }
 
     this.rectangle.lines.forEach((line, i) => {
       if (line.rectangleStart === this.rectangle) {
@@ -76,6 +101,11 @@ export class MovingNode {
       this.startCoords.rectangle.x + diff1,
       this.startCoords.rectangle.y + diff2,
     )
+
+    this.rectangle.leftBorder = this.startCoords.leftBorder + diff1
+    this.rectangle.rightBorder = this.startCoords.rightBorder + diff1
+    this.rectangle.topBorder = this.startCoords.topBorder + diff2
+    this.rectangle.bottomBorder = this.startCoords.bottomBorder + diff2
   }
 
   stop() {
