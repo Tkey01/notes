@@ -8,8 +8,6 @@ import { SaveManager } from './managers/SaveManager'
 import { LoadManager } from './managers/LoadManager'
 import { displayCaveatsOnMobileDevices } from './utils'
 
-displayCaveatsOnMobileDevices()
-
 const canvas = document.querySelector('.canvas')
 
 export const ctx = canvas.getContext('2d')
@@ -149,3 +147,5 @@ rc.add(rect1)
 rc.add(rect2)
 
 init()
+
+displayCaveatsOnMobileDevices()
